@@ -18,9 +18,6 @@ import datetime as dt
 from datetime import time
 import sys
 USvideos = pd.read_csv('D:/Auxiliar/Descargas/proyectosPy/USvideos.csv')
-# US_videos_columns = USvideos.columns
-# print(US_videos_columns)
-
 # TAREA NUMERO 2 
 # tiempo_para_hacerse_viral = trending_date - publish_time
 # print(tiempo_para_hacerse_viral)
@@ -68,7 +65,7 @@ lambda each_tuple: each_tuple[0].days < 8, days_lapse_count.items())
 )
 
 
-fig, ax1 = plt.subplots(figsize=(19, 13), nrows=1, ncols=1)
+fig, grafica = plt.subplots(figsize=(19, 13), nrows=1, ncols=1)
 
 cmap = plt.get_cmap('autumn')
 colors = [cmap(i) for i in np.linspace(0, 1, len(days))]
@@ -76,37 +73,13 @@ colors = [cmap(i) for i in np.linspace(0, 1, len(days))]
 # promedio = np.mean(days_lapse.value_counts())
 # DE = np.std(days_lapse.value_counts()) 
 
-ax1.bar(range(len(days)), np.log(count), yerror=error, align = 'center', width=0.6, color=colors)
-ax1.set_xticks(range(len(days)))
+grafica.bar(range(len(days)), np.log(count), align = 'center', width=0.6, color=colors)
+grafica.set_xticks(range(len(days)))
 label_days = ['{} days'.format(i.days) for i in days]
-ax1.set_xticklabels(label_days, rotation=45)
-ax1.set_ylabel('log of frequency count')
+grafica.set_xticklabels(label_days, rotation=45)
+grafica.set_ylabel('log of frequency count')
 # frecuency count = número de veces que ocurre un suceso
-ax1.set_xlabel('Número de dìas antes de ser tendencia')
-ax1.set_title('Plot de la frecuencia discreta del número de días antes de ser tendencia')
+grafica.set_xlabel('Número de dìas antes de ser tendencia')
+grafica.set_title('Plot de la frecuencia discreta del número de días antes de ser tendencia')
 
 
-# cum_arr=np.cumsum(count)
-# max_val=np.max(cum_arr)
-# min_val=np.min(cum_arr)
-# ax2.plot((cum_arr-min_val)/(max_val-min_val))
-# ax2.set_xticks(range(len(days)))
-# ax2.set_xticklabels(label_days,rotation=45)
-# ax2.set_ylabel('Frecuencia acumulada del número de videos')
-# ax2.set_xlabel('Número de días antes de ser tendencia')
-
-
-# Mostrar una sola columna del dataframe
-# US_videos_columns= USvideos.days_lapse
-# print(US_videos_columns)
-
-#Información para graficar
-# ts = pd.Series(np.random.randn(1000), index=pd.date_range("1/1/2000", periods=1000))
-# df = pd.DataFrame(np.random.randn(1000, 4), index=ts.index, columns=list("ABCD"))
-# df = df.cumsum()
-# plt.figure();
-# df.plot();
-# df3 = pd.DataFrame(np.random.randn(1000, 2), columns=["B", "C"]).cumsum()
-# df3["A"] = pd.Series(list(range(len(df))))
-# df3.plot(x="A", y="B");
-#Correlacionar likes con vistas
