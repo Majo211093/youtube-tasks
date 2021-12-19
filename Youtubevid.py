@@ -132,9 +132,9 @@ ax2.set_ylabel('Frecuencia acumulada del número de videos')
 ax2.set_xlabel('Número de días antes de ser tendencia')
 
 
-# Mostrar una sola columna del dataframe
-# US_videos_columns= USvideos.days_lapse
-# print(US_videos_columns)
+ # Mostrar una sola columna del dataframe
+ # US_videos_columns= USvideos.days_lapse
+ # print(US_videos_columns)
 
 #Información para graficar
 # ts = pd.Series(np.random.randn(1000), index=pd.date_range("1/1/2000", periods=1000))

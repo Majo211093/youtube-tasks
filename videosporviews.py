@@ -56,7 +56,7 @@ print("-----------")
 print("=== Views by category id and channel title  ===")
 print(top_10_sum(
     USvideos,
-    columnas_sum=['category_id', 'channel_title'],
+    columnas_sum=['title', 'video_id'],
     columnas_group_by=['views']
     )
 ) 

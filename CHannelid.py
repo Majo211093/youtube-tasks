@@ -72,8 +72,10 @@ colors = [cmap(i) for i in np.linspace(0, 1, len(days))]
 
 # promedio = np.mean(days_lapse.value_counts())
 # DE = np.std(days_lapse.value_counts()) 
-
-grafica.bar(range(len(days)), np.log(count), align = 'center', width=0.6, color=colors)
+#-------------------------------------------------------
+#Calculando el error estandar
+std_error = np.std(count, ddof = 1) / np.sqrt (len (days))
+grafica.bar(range(len(days)), np.log(count), yerr= std_error, align = 'center', width=0.6, color=colors)
 grafica.set_xticks(range(len(days)))
 label_days = ['{} days'.format(i.days) for i in days]
 grafica.set_xticklabels(label_days, rotation=45)
@@ -82,4 +84,4 @@ grafica.set_ylabel('log of frequency count')
 grafica.set_xlabel('Número de dìas antes de ser tendencia')
 grafica.set_title('Plot de la frecuencia discreta del número de días antes de ser tendencia')
 
-
+# Graficar el performance de un video (cómo evolucionan las vistas, los likes y los dislikes a trave del tiempo)
